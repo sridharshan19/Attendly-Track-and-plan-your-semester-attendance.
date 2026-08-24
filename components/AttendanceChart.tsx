@@ -134,7 +134,7 @@ export default function AttendanceChart({ attended, total, target }: AttendanceC
                       Safe to Bunk
                     </span>
                     <span className="text-sm font-extrabold text-emerald-400 block mt-0.5">
-                      {skips} {skips === 1 ? 'Class' : 'Classes'}
+                      {skips} {skips === 1 ? 'Day' : 'Days'}
                     </span>
                   </div>
                 ) : (
@@ -143,7 +143,7 @@ export default function AttendanceChart({ attended, total, target }: AttendanceC
                       Need to Attend
                     </span>
                     <span className="text-sm font-extrabold text-sky-400 block mt-0.5">
-                      {required} {required === 1 ? 'Class' : 'Classes'}
+                      {required} {required === 1 ? 'Day' : 'Days'}
                     </span>
                   </div>
                 )}
