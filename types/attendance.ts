@@ -8,6 +8,7 @@ export interface CalculatorInputs {
   target: number;
   futureClasses?: number;
   expectedFutureAttendance?: number;
+  classesPerDay?: number;
 }
 
 export interface CalculationResults {
@@ -22,14 +23,6 @@ export interface CalculationResults {
   attendedClassesAfterFuture?: number;
   isTargetAchievable: boolean;
   maxPossiblePercentage: number;
-}
-
-export interface ScenarioResult {
-  action: string;
-  newAttended: number;
-  newTotal: number;
-  newPercentage: number;
-  diff: number;
 }
 
 export interface FAQItem {

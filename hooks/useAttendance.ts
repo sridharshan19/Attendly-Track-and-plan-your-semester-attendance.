@@ -10,6 +10,7 @@ const DEFAULT_INPUTS: CalculatorInputs = {
   target: 75,
   futureClasses: 10,
   expectedFutureAttendance: 100,
+  classesPerDay: 5,
 };
 
 export function useAttendance(initialInputs: Partial<CalculatorInputs> = {}) {
@@ -25,7 +26,6 @@ export function useAttendance(initialInputs: Partial<CalculatorInputs> = {}) {
   const updateInput = (key: keyof CalculatorInputs, value: number) => {
     setInputs((prev) => {
       const updated = { ...prev, [key]: value };
-      // Enforce attended <= total constraint if total drops below attended
       if (key === 'total' && value < updated.attended) {
         updated.attended = value;
       }

@@ -68,7 +68,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} dark`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -92,7 +92,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen font-sans bg-slate-950 text-slate-100 antialiased selection:bg-cyan-500 selection:text-black">
+      <body className="min-h-screen font-sans bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased selection:bg-sky-500 selection:text-white transition-colors duration-300">
         {children}
       </body>
     </html>
