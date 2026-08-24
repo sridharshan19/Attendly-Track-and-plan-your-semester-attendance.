@@ -11,10 +11,10 @@ import QuickTargets from './QuickTargets';
 import ResultCard from './ResultCard';
 
 const QUICK_PRESETS = [
-  { label: '45 / 60 Classes', attended: 45, total: 60, target: 75 },
-  { label: '30 / 50 Classes', attended: 30, total: 50, target: 75 },
-  { label: '50 / 60 Classes', attended: 50, total: 60, target: 80 },
-  { label: '18 / 25 Classes', attended: 18, total: 25, target: 75 },
+  { label: '45 / 60 Days', attended: 45, total: 60, target: 75 },
+  { label: '30 / 50 Days', attended: 30, total: 50, target: 75 },
+  { label: '50 / 60 Days', attended: 50, total: 60, target: 80 },
+  { label: '18 / 25 Days', attended: 18, total: 25, target: 75 },
 ];
 
 export default function AttendanceCalculator() {
@@ -27,7 +27,7 @@ export default function AttendanceCalculator() {
     if (val > inputs.total) {
       setInputErrors((prev) => ({
         ...prev,
-        attended: 'Attended classes cannot exceed total classes.',
+        attended: 'Attended days cannot exceed total days.',
       }));
     } else {
       setInputErrors((prev) => ({ ...prev, attended: undefined }));
@@ -44,10 +44,7 @@ export default function AttendanceCalculator() {
     updateInput('total', val);
   };
 
-  const handleClassesPerDayChange = (val: number) => {
-    if (val < 1) return;
-    updateInput('classesPerDay', val);
-  };
+
 
   const handleApplyPreset = (preset: typeof QUICK_PRESETS[0]) => {
     setInputErrors({});
@@ -57,7 +54,6 @@ export default function AttendanceCalculator() {
       target: preset.target,
       futureClasses: 10,
       expectedFutureAttendance: 100,
-      classesPerDay: inputs.classesPerDay || 5,
     });
   };
 
@@ -91,7 +87,7 @@ export default function AttendanceCalculator() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-xs font-black text-slate-700 dark:text-slate-300 block mb-1">
-                      Classes Attended (Present)
+                      Days Attended (Present)
                     </label>
                     <div className="flex items-center gap-1.5">
                       <button
@@ -130,7 +126,7 @@ export default function AttendanceCalculator() {
 
                   <div>
                     <label className="text-xs font-black text-slate-700 dark:text-slate-300 block mb-1">
-                      Total Classes Conducted
+                      Total Days Conducted
                     </label>
                     <div className="flex items-center gap-1.5">
                       <button
@@ -161,36 +157,6 @@ export default function AttendanceCalculator() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="text-xs font-black text-slate-700 dark:text-slate-300 block mb-1">
-                    Daily Classes (Conducted per day)
-                  </label>
-                  <div className="flex items-center gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => handleClassesPerDayChange(Math.max(1, (inputs.classesPerDay || 5) - 1))}
-                      className="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all border border-slate-200 dark:border-white/5 active:scale-95"
-                      aria-label="Decrease daily classes"
-                    >
-                      <Minus className="w-3.5 h-3.5" />
-                    </button>
-                    <input
-                      type="number"
-                      min="1"
-                      value={inputs.classesPerDay || 5}
-                      onChange={(e) => handleClassesPerDayChange(Math.max(1, Number(e.target.value)))}
-                      className="flex-1 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-extrabold text-lg focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all text-center"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => handleClassesPerDayChange((inputs.classesPerDay || 5) + 1)}
-                      className="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all border border-slate-200 dark:border-white/5 active:scale-95"
-                      aria-label="Increase daily classes"
-                    >
-                      <Plus className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
 
                 {activeTab === 'projection' && (
                   <motion.div
@@ -247,7 +213,6 @@ export default function AttendanceCalculator() {
             results={results}
             attended={inputs.attended}
             total={inputs.total}
-            classesPerDay={inputs.classesPerDay || 5}
           />
         </div>
       </div>

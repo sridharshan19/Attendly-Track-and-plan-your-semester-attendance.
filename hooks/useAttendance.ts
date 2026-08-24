@@ -10,7 +10,6 @@ const DEFAULT_INPUTS: CalculatorInputs = {
   target: 75,
   futureClasses: 10,
   expectedFutureAttendance: 100,
-  classesPerDay: 5,
 };
 
 export function useAttendance(initialInputs: Partial<CalculatorInputs> = {}) {

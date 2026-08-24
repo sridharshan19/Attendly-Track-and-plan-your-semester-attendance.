@@ -10,10 +10,9 @@ interface ResultCardProps {
   results: CalculationResults;
   attended: number;
   total: number;
-  classesPerDay: number;
 }
 
-export default function ResultCard({ results, attended, total, classesPerDay }: ResultCardProps) {
+export default function ResultCard({ results, attended, total }: ResultCardProps) {
   const getStatusBadge = () => {
     switch (results.status) {
       case 'healthy':
@@ -39,9 +38,6 @@ export default function ResultCard({ results, attended, total, classesPerDay }: 
 
   const statusBadge = getStatusBadge();
 
-  // Convert classes to days
-  const safeDays = (results.safeSkips / classesPerDay).toFixed(1);
-  const requiredDays = results.requiredClasses > 0 ? (results.requiredClasses / classesPerDay).toFixed(1) : '0.0';
 
   return (
     <motion.div
@@ -87,7 +83,7 @@ export default function ResultCard({ results, attended, total, classesPerDay }: 
           </span>
         </div>
 
-        {/* Safe Skips */}
+        {/* Safe to Bunk */}
         <div className="p-3.5 rounded-2xl bg-emerald-500/5 dark:bg-emerald-500/10 border border-emerald-500/20">
           <span className="text-xs text-emerald-600 dark:text-emerald-300 font-bold block">Safe to Bunk</span>
           <div className="flex items-baseline gap-1">
@@ -96,14 +92,11 @@ export default function ResultCard({ results, attended, total, classesPerDay }: 
               decimals={0}
               className="text-2xl font-black text-emerald-600 dark:text-emerald-400"
             />
-            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Classes</span>
+            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">Days</span>
           </div>
-          <span className="text-[11px] text-emerald-700/80 dark:text-emerald-300/80 block font-medium mt-1">
-            ~{safeDays} {Number(safeDays) === 1 ? 'Day' : 'Days'} of skips
-          </span>
         </div>
 
-        {/* Required Classes */}
+        {/* Required Days */}
         <div className="p-3.5 rounded-2xl bg-sky-500/5 dark:bg-sky-500/10 border border-sky-500/20">
           <span className="text-xs text-sky-600 dark:text-sky-300 font-bold block">Needed to Attend</span>
           {results.requiredClasses === -1 ? (
@@ -115,7 +108,7 @@ export default function ResultCard({ results, attended, total, classesPerDay }: 
                 decimals={0}
                 className="text-2xl font-black text-sky-600 dark:text-sky-400"
               />
-              <span className="text-xs font-bold text-sky-600 dark:text-sky-400">Classes</span>
+              <span className="text-xs font-bold text-sky-600 dark:text-sky-400">Days</span>
             </div>
           )}
           <span className="text-[11px] text-sky-700/80 dark:text-sky-300/80 block font-medium mt-1">
@@ -123,7 +116,7 @@ export default function ResultCard({ results, attended, total, classesPerDay }: 
               ? 'Already on target!'
               : results.requiredClasses === -1
               ? 'Target exceeds max'
-              : `~${requiredDays} ${Number(requiredDays) === 1 ? 'Day' : 'Days'} of classes`}
+              : 'to reach your target'}
           </span>
         </div>
       </div>

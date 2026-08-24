@@ -8,7 +8,6 @@ export interface CalculatorInputs {
   target: number;
   futureClasses?: number;
   expectedFutureAttendance?: number;
-  classesPerDay?: number;
 }
 
 export interface CalculationResults {
