@@ -19,19 +19,19 @@ export default function ResultCard({ results, attended, total }: ResultCardProps
         return {
           icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" />,
           label: 'Healthy Status',
-          badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
+          badge: 'bg-emerald-500/25 text-emerald-300 border-emerald-500/30',
         };
       case 'warning':
         return {
           icon: <AlertTriangle className="w-4 h-4 text-amber-400" />,
           label: 'Warning Status',
-          badge: 'bg-amber-500/20 text-amber-300 border-amber-500/30',
+          badge: 'bg-amber-500/25 text-amber-300 border-amber-500/30',
         };
       case 'critical':
         return {
           icon: <XCircle className="w-4 h-4 text-rose-400" />,
           label: 'Critical Status',
-          badge: 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+          badge: 'bg-rose-500/25 text-rose-300 border-rose-500/30',
         };
     }
   };
@@ -42,7 +42,7 @@ export default function ResultCard({ results, attended, total }: ResultCardProps
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="p-6 sm:p-8 rounded-3xl glass-panel shadow-2xl flex flex-col justify-between relative overflow-hidden"
+      className="p-6 sm:p-8 rounded-3xl glass-panel shadow-2xl flex flex-col justify-between relative overflow-hidden h-full"
     >
       <div className="flex flex-col items-center">
         {/* Status Badge */}
@@ -65,7 +65,7 @@ export default function ResultCard({ results, attended, total }: ResultCardProps
       </div>
 
       {/* Breakdown Grid */}
-      <div className="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-white/10">
+      <div className="grid grid-cols-2 gap-3 mt-8 pt-6 border-t border-white/5">
         {/* Attended / Total */}
         <div className="p-3.5 rounded-2xl bg-slate-900/60 border border-white/5">
           <span className="text-xs text-slate-400 font-semibold block">Attended Record</span>
@@ -96,18 +96,18 @@ export default function ResultCard({ results, attended, total }: ResultCardProps
         </div>
 
         {/* Required Classes */}
-        <div className="p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20">
-          <span className="text-xs text-cyan-300 font-bold block">Needed to Attend</span>
+        <div className="p-3.5 rounded-2xl bg-sky-500/10 border border-sky-500/20">
+          <span className="text-xs text-sky-300 font-bold block">Needed to Attend</span>
           {results.requiredClasses === -1 ? (
             <span className="text-sm font-extrabold text-rose-400">Unachievable</span>
           ) : (
             <AnimatedCounter
               value={results.requiredClasses}
               decimals={0}
-              className="text-2xl font-black text-cyan-400"
+              className="text-2xl font-black text-sky-400"
             />
           )}
-          <span className="text-[11px] text-cyan-300/80 block font-medium">
+          <span className="text-[11px] text-sky-300/80 block font-medium">
             {results.requiredClasses === 0
               ? 'Already on target!'
               : results.requiredClasses === -1
@@ -118,11 +118,11 @@ export default function ResultCard({ results, attended, total }: ResultCardProps
       </div>
 
       {results.projectedPercentage !== undefined && results.projectedPercentage > 0 && (
-        <div className="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-white/10 text-xs text-slate-300 flex items-start gap-2.5">
-          <Info className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+        <div className="mt-4 p-3.5 rounded-2xl bg-slate-900/80 border border-white/5 text-xs text-slate-300 flex items-start gap-2.5">
+          <Info className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
           <span>
             Projected end-of-semester attendance:{' '}
-            <strong className="text-cyan-400 font-bold">
+            <strong className="text-sky-400 font-bold">
               {results.projectedPercentage}%
             </strong>
           </span>

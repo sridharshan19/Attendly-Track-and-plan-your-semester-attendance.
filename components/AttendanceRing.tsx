@@ -28,11 +28,11 @@ export default function AttendanceRing({
   const getRingColor = () => {
     switch (status) {
       case 'healthy':
-        return { stroke: '#10b981', glow: 'shadow-[0_0_30px_rgba(16,185,129,0.4)]', text: 'text-emerald-400' };
+        return { stroke: '#10b981', glow: 'shadow-[0_0_30px_rgba(16,185,129,0.25)]', text: 'text-emerald-400' };
       case 'warning':
-        return { stroke: '#f59e0b', glow: 'shadow-[0_0_30px_rgba(245,158,11,0.4)]', text: 'text-amber-400' };
+        return { stroke: '#f59e0b', glow: 'shadow-[0_0_30px_rgba(245,158,11,0.25)]', text: 'text-amber-400' };
       case 'critical':
-        return { stroke: '#f43f5e', glow: 'shadow-[0_0_30px_rgba(244,63,94,0.4)]', text: 'text-rose-400' };
+        return { stroke: '#f43f5e', glow: 'shadow-[0_0_30px_rgba(244,63,94,0.25)]', text: 'text-rose-400' };
     }
   };
 
@@ -44,15 +44,15 @@ export default function AttendanceRing({
         <defs>
           <linearGradient id="healthyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#10b981" />
-            <stop offset="100%" stopColor="#06b6d4" />
+            <stop offset="100%" stopColor="#0d9488" />
           </linearGradient>
           <linearGradient id="warningGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#f59e0b" />
-            <stop offset="100%" stopColor="#f97316" />
+            <stop offset="100%" stopColor="#d97706" />
           </linearGradient>
           <linearGradient id="criticalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#f43f5e" stopOpacity={1} />
-            <stop offset="100%" stopColor="#e11d48" stopOpacity={1} />
+            <stop offset="0%" stopColor="#f43f5e" />
+            <stop offset="100%" stopColor="#e11d48" />
           </linearGradient>
         </defs>
 
@@ -61,7 +61,7 @@ export default function AttendanceRing({
           cx={center}
           cy={center}
           r={radius}
-          stroke="rgba(255, 255, 255, 0.08)"
+          stroke="rgba(255, 255, 255, 0.05)"
           strokeWidth={strokeWidth}
           fill="transparent"
         />
@@ -89,7 +89,6 @@ export default function AttendanceRing({
         />
       </svg>
 
-      {/* Center Percentage Display */}
       <div className="absolute flex flex-col items-center justify-center text-center">
         <span className="text-[11px] uppercase font-bold tracking-widest text-slate-400">
           Attendance
@@ -104,7 +103,7 @@ export default function AttendanceRing({
           key={target}
           initial={{ opacity: 0, y: 4 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-xs text-cyan-400 font-bold mt-1 bg-cyan-500/10 px-3 py-0.5 rounded-full border border-cyan-500/20"
+          className="text-xs text-sky-400 font-bold mt-1 bg-white/5 px-3 py-0.5 rounded-full border border-white/10"
         >
           Target: {target}%
         </motion.span>

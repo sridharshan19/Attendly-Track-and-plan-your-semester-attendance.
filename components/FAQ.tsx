@@ -33,7 +33,7 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-6 px-4 sm:px-6 max-w-4xl mx-auto">
       <div className="text-center mb-6">
-        <span className="px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 inline-block mb-1.5">
+        <span className="px-3.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10 inline-block mb-1.5">
           Formula Reference
         </span>
         <h2 className="text-2xl font-black text-white tracking-tight">
@@ -55,12 +55,12 @@ export default function FAQ() {
                 aria-expanded={isOpen}
               >
                 <span className="flex items-center gap-3">
-                  <HelpCircle className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <HelpCircle className="w-4 h-4 text-sky-400 shrink-0" />
                   {faq.question}
                 </span>
                 <ChevronDown
                   className={`w-4 h-4 text-slate-400 shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180 text-cyan-400' : ''
+                    isOpen ? 'rotate-180 text-sky-400' : ''
                   }`}
                 />
               </button>

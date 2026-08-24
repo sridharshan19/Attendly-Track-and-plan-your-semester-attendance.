@@ -18,7 +18,7 @@ const TABS: { id: CalculatorMode; label: string; icon: React.ComponentType<{ cla
 
 export default function CalculatorTabs({ activeTab, onTabChange }: CalculatorTabsProps) {
   return (
-    <div className="flex p-1.5 rounded-2xl bg-slate-900/90 border border-white/10 backdrop-blur-xl max-w-3xl mx-auto mb-8 overflow-x-auto no-scrollbar shadow-xl">
+    <div className="flex p-1 rounded-2xl bg-slate-900/60 border border-white/5 backdrop-blur-xl max-w-3xl mx-auto mb-6 overflow-x-auto no-scrollbar shadow-xl">
       {TABS.map((tab) => {
         const Icon = tab.icon;
         const isActive = activeTab === tab.id;
@@ -34,11 +34,11 @@ export default function CalculatorTabs({ activeTab, onTabChange }: CalculatorTab
             {isActive && (
               <motion.div
                 layoutId="activeCalculatorTab"
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 via-indigo-500/30 to-purple-500/30 border border-cyan-500/40 rounded-xl shadow-glow -z-10"
+                className="absolute inset-0 bg-white/10 border border-white/10 rounded-xl -z-10"
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
               />
             )}
-            <Icon className={`w-4 h-4 ${isActive ? 'text-cyan-400' : 'opacity-60'}`} />
+            <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'opacity-60'}`} />
             <span>{tab.label}</span>
           </button>
         );

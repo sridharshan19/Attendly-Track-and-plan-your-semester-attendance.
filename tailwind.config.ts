@@ -12,24 +12,18 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        neon: {
-          cyan: "#00f2fe",
-          blue: "#4facfe",
-          purple: "#7928ca",
-          pink: "#ff007a",
-          emerald: "#10b981",
-          amber: "#f59e0b",
-          rose: "#f43f5e",
+        brand: {
+          blue: "#38bdf8",
+          sky: "#0ea5e9",
+          slate: "#94a3b8",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "-apple-system", "sans-serif"],
       },
       boxShadow: {
-        glow: "0 0 30px -5px rgba(6, 182, 212, 0.3)",
-        "glow-purple": "0 0 30px -5px rgba(121, 40, 202, 0.3)",
-        "glow-emerald": "0 0 30px -5px rgba(16, 185, 129, 0.3)",
-        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+        glow: "0 0 30px -5px rgba(56, 189, 248, 0.25)",
+        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.4)",
       },
     },
   },

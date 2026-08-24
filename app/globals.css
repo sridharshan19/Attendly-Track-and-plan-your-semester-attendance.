@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f172a;
+  --background: #07090e;
   --foreground: #f8fafc;
 }
 
 .dark {
-  --background: #030712;
-  --foreground: #f9fafb;
+  --background: #07090e;
+  --foreground: #f8fafc;
 }
 
 body {
@@ -21,17 +21,10 @@ body {
 
 /* Custom Glass Cards */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(13, 16, 23, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.light .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Range Slider Styling */
@@ -41,8 +34,8 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #06b6d4;
-  box-shadow: 0 0 12px #06b6d4;
+  background: #f1f5f9;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: transform 0.15s ease;
 }
@@ -73,10 +66,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.6);
+  background: rgba(255, 255, 255, 0.2);
 }
